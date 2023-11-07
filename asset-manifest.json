@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/chefkochidoo/static/css/main.f855e6bc.css",
+    "main.js": "/chefkochidoo/static/js/main.c1181e2a.js",
+    "static/js/787.4a002ae5.chunk.js": "/chefkochidoo/static/js/787.4a002ae5.chunk.js",
+    "service-worker.js": "/chefkochidoo/service-worker.js",
+    "static/media/logo.svg": "/chefkochidoo/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
+    "index.html": "/chefkochidoo/index.html",
+    "main.f855e6bc.css.map": "/chefkochidoo/static/css/main.f855e6bc.css.map",
+    "main.c1181e2a.js.map": "/chefkochidoo/static/js/main.c1181e2a.js.map",
+    "787.4a002ae5.chunk.js.map": "/chefkochidoo/static/js/787.4a002ae5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.c1181e2a.js"
+  ]
+}
