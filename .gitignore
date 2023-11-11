@@ -4,12 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
+/lambda-app/package
 
 # testing
 /coverage
 
 # production
 /build
+
+/lambda-app/terraform*
 
 # misc
 .DS_Store
