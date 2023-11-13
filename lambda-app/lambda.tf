@@ -2,8 +2,12 @@ provider "aws" {
   region = "eu-central-1"
 }
 
-resource "aws_s3_object" "package" {
+resource "aws_s3_bucket" "lambda-bucket" {
   bucket = "753475619107-lambda"
+}
+
+resource "aws_s3_object" "package" {
+  bucket = aws_s3_bucket.lambda-bucket.bucket
   key    = "lambda_function.zip"
   source = "lambda_function.zip"
   etag   = filemd5("lambda_function.zip")
@@ -11,7 +15,7 @@ resource "aws_s3_object" "package" {
 
 resource "aws_lambda_function" "chefkochidoo-proxy" {
   function_name    = "chefkochidoo-proxy"
-  s3_bucket        = "753475619107-lambda"
+  s3_bucket        = aws_s3_bucket.lambda-bucket.bucket
   s3_key           = "lambda_function.zip"
   source_code_hash = aws_s3_object.package.source_hash
 
@@ -48,7 +52,6 @@ resource "aws_cloudwatch_log_group" "function_log_group" {
     prevent_destroy = false
   }
 }
-
 resource "aws_iam_policy" "function_logging_policy" {
   name = "function-logging-policy"
   policy = jsonencode({
