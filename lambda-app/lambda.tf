@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "lambda-bucket" {
-  bucket = "753475619107-lambda"
+  bucket = "500090592849-lambda"
 }
 
 resource "aws_s3_object" "package" {
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "chefkochidoo-proxy" {
   function_name    = "chefkochidoo-proxy"
   s3_bucket        = aws_s3_bucket.lambda-bucket.bucket
   s3_key           = "lambda_function.zip"
-  source_code_hash = aws_s3_object.package.source_hash
+  source_code_hash = filebase64sha256("lambda_function.zip")
 
   handler = "lambda_function.lambda_handler"
   runtime = "python3.11"
